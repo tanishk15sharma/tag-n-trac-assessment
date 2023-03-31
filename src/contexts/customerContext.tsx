@@ -1,9 +1,17 @@
 import { createContext, ReactNode, useState, useContext } from "react";
+import { SendItemsDetails } from "../components/SendItemModal";
+
+interface UserDetails {
+  _id: number;
+  name: string;
+  profile: string;
+  shippments: SendItemsDetails[];
+}
 
 const userContext = createContext<any>(null);
 
 const UserContextProvider = ({ children }: { children: ReactNode }) => {
-  const [userDetails, setUserDetails] = useState("");
+  const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
 
   return (
     <userContext.Provider value={{ userDetails, setUserDetails }}>

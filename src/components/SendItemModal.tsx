@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { customers } from "../mockData/customers";
 import { deliveryPartners } from "../mockData/deliveryPartners";
 
-interface SendItemsDetails {
+export interface SendItemsDetails {
   pickup: string;
   drop: string;
   pickupDate: string;
