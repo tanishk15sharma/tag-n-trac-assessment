@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { customers } from "../mockData/customers";
 import { deliveryPartners } from "../mockData/deliveryPartners";
 
 interface SendItemsDetails {
@@ -7,6 +8,7 @@ interface SendItemsDetails {
   pickupDate: string;
   pickupTime: string;
   DeliveryPartnerId: number | undefined;
+  status: string;
 }
 
 const SendItemModal = ({ setModal }: any) => {
@@ -17,6 +19,7 @@ const SendItemModal = ({ setModal }: any) => {
     pickupDate: "",
     pickupTime: "",
     DeliveryPartnerId: undefined,
+    status: "",
   });
   const captchaCharacters = "abcd1234";
 
@@ -46,6 +49,10 @@ const SendItemModal = ({ setModal }: any) => {
     }));
   };
 
+  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
   return (
     <main
       onClick={() => setModal((preVal: any) => !preVal)}
@@ -58,7 +65,10 @@ const SendItemModal = ({ setModal }: any) => {
         <div className="p-4">
           <h1 className="text-3xl font-semibold">Where to deliver ?</h1>
           <h4 className="text-gray-500 text-sm">Your on demand service boy</h4>
-          <form action="" className="flex flex-col my-10">
+          <form
+            onSubmit={(e) => submitHandler(e)}
+            className="flex flex-col my-10"
+          >
             <label
               htmlFor="pick"
               className="text-[10px] font-semibold text-gray-400"
@@ -138,13 +148,14 @@ const SendItemModal = ({ setModal }: any) => {
                 >
                   {deliveryPartners.map((partner) => (
                     <option
+                      key={partner.id}
                       className={`p-2 m-2 font-medium ${
                         partner.isAvailable ? "text-green-600" : "text-red-600 "
                       } text-sm`}
                       disabled={!partner.isAvailable}
                       value={partner.id}
                     >
-                      {partner.name},<span>{partner.area}</span>
+                      {partner.name},{partner.area}
                     </option>
                   ))}
                 </select>
@@ -162,12 +173,7 @@ const SendItemModal = ({ setModal }: any) => {
                   >
                     {generatedCaptcha}
                   </div>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      generateCaptcha();
-                    }}
-                  >
+                  <button onClick={(e) => generateCaptcha()}>
                     <span className="material-icons-outlined dark:text-white">
                       sync
                     </span>
@@ -180,7 +186,10 @@ const SendItemModal = ({ setModal }: any) => {
                   className="border py-2 rounded-md px-2"
                 />
               </div>
-              <button className="bg-blue-400 py-2 w-[30%] px-3 font-semibold text-white">
+              <button
+                type="submit"
+                className="bg-blue-400 py-2 w-[30%] px-3 font-semibold text-white"
+              >
                 Pay Now
               </button>
             </div>
