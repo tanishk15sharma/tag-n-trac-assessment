@@ -1,7 +1,23 @@
 import React, { useEffect, useState } from "react";
+import { deliveryPartners } from "../mockData/deliveryPartners";
+
+interface SendItemsDetails {
+  pickup: string;
+  drop: string;
+  pickupDate: string;
+  pickupTime: string;
+  DeliveryPartnerId: number | undefined;
+}
 
 const SendItemModal = ({ setModal }: any) => {
   const [generatedCaptcha, setGeneratedCaptcha] = useState("");
+  const [sendItemDetails, setSendItemDetails] = useState<SendItemsDetails>({
+    pickup: "",
+    drop: "",
+    pickupDate: "",
+    pickupTime: "",
+    DeliveryPartnerId: undefined,
+  });
   const captchaCharacters = "abcd1234";
 
   const generateCaptcha = () => {
@@ -18,6 +34,17 @@ const SendItemModal = ({ setModal }: any) => {
   useEffect(() => {
     generateCaptcha();
   }, []);
+
+  const handleFormInput = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setSendItemDetails((previousData) => ({
+      ...previousData,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   return (
     <main
@@ -41,6 +68,8 @@ const SendItemModal = ({ setModal }: any) => {
             <input
               type="text"
               id="pick"
+              onChange={(e) => handleFormInput(e)}
+              name="pickup"
               className="border py-2 rounded-md px-2"
               placeholder="Enter the location"
             />
@@ -54,6 +83,8 @@ const SendItemModal = ({ setModal }: any) => {
             <input
               type="text"
               id="drop"
+              onChange={(e) => handleFormInput(e)}
+              name="drop"
               className="border py-2 rounded-md px-2"
               placeholder="Enter the location"
             />
@@ -69,6 +100,8 @@ const SendItemModal = ({ setModal }: any) => {
                 <input
                   type="date"
                   id="date"
+                  onChange={(e) => handleFormInput(e)}
+                  name="pickupDate"
                   className="border py-2 rounded-md px-2"
                   placeholder="Enter the location"
                 />
@@ -84,6 +117,8 @@ const SendItemModal = ({ setModal }: any) => {
                 <input
                   type="time"
                   id="time"
+                  onChange={(e) => handleFormInput(e)}
+                  name="pickupTime"
                   className="border py-2 rounded-md px-2"
                   placeholder="Enter the location"
                 />
@@ -96,22 +131,22 @@ const SendItemModal = ({ setModal }: any) => {
                   DELIVERY PARTNER
                 </label>
                 <select
+                  onChange={(e) => handleFormInput(e)}
                   id="deliveryPartner"
                   className="p-2 border rounded-md"
-                  name="partner"
+                  name="DeliveryPartnerId"
                 >
-                  <option className="p-2 m-2" value="tansihk1">
-                    tansihk1
-                  </option>
-                  <option className="p-2 m-2" value="tansihk2">
-                    tansihk2
-                  </option>
-                  <option className="p-2 m-2" value="tansihk3">
-                    tansihk3
-                  </option>
-                  <option className="p-2 m-2" value="tansihk4">
-                    tansihk4
-                  </option>
+                  {deliveryPartners.map((partner) => (
+                    <option
+                      className={`p-2 m-2 font-medium ${
+                        partner.isAvailable ? "text-green-600" : "text-red-600 "
+                      } text-sm`}
+                      disabled={!partner.isAvailable}
+                      value={partner.id}
+                    >
+                      {partner.name},<span>{partner.area}</span>
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
