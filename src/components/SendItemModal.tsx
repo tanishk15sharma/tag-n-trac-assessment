@@ -10,7 +10,7 @@ export interface SendItemsDetails {
   status: string;
 }
 
-const SendItemModal = ({ setModal }: any) => {
+const SendItemModal = ({ setModal }: { setModal: () => void }) => {
   const [generatedCaptcha, setGeneratedCaptcha] = useState("");
   const [sendItemDetails, setSendItemDetails] = useState<SendItemsDetails>({
     pickup: "",
@@ -54,7 +54,7 @@ const SendItemModal = ({ setModal }: any) => {
 
   return (
     <main
-      onClick={() => setModal((preVal: any) => !preVal)}
+      onClick={() => setModal()}
       className="fixed inset-0 h-screen w-screen flex justify-center items-start z-30 bg-zinc-500"
     >
       <div

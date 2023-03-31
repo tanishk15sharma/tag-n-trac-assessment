@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "name": "Harish Singh",
+      "email": "harish@gmail.com",
+      "id": 11,
+      "profile": "",
+      "shippments": [],
+      "password": "12345",
+      "role": "customer"
+    },
+    {
+      "name": "Palak Jain",
+      "email": "palak@gmail.com",
+      "id": 12,
+      "profile": "",
+      "shippments": [],
+      "password": "12345",
+      "role": "customer"
+    },
+    {
+      "name": "Palak Jain",
+      "email": "palak@gmail.com",
+      "id": 13,
+      "profile": "",
+      "shippments": [],
+      "password": "5555",
+      "role": "customer"
+    }
+  ]
+}

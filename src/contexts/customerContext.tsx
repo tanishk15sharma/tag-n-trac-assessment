@@ -9,24 +9,25 @@ interface UserDetails {
   email: string;
 }
 
-const userContext = createContext<any>(null);
+const userContext = createContext<{
+  userDetails: UserDetails | null;
+  setUserDetails: React.Dispatch<React.SetStateAction<UserDetails | null>>;
+} | null>(null);
 
 const UserContextProvider = ({ children }: { children: ReactNode }) => {
   const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
 
+  console.log(userDetails);
   return (
     <userContext.Provider value={{ userDetails, setUserDetails }}>
       {children}
     </userContext.Provider>
   );
 };
-
 const useUser = () => {
   const context = useContext(userContext);
   if (context === null) {
-    throw new Error(
-      "useProducts must be used within a ProductsContextProvider"
-    );
+    throw new Error("useUser must be used within a UserContextProvider");
   }
   return context;
 };

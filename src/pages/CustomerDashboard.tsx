@@ -14,7 +14,9 @@ const CustomerDashboard = () => {
         PICK AND DROP
       </button>
       {toggleSendItemModal && (
-        <SendItemModal setModal={setToggleSendItemModal} />
+        <SendItemModal
+          setModal={() => setToggleSendItemModal((previousVal) => !previousVal)}
+        />
       )}
     </div>
   );
