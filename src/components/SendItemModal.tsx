@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { customers } from "../mockData/customers";
 import { deliveryPartners } from "../mockData/deliveryPartners";
 
 export interface SendItemsDetails {

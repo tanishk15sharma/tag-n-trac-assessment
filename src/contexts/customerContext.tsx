@@ -6,6 +6,7 @@ interface UserDetails {
   name: string;
   profile: string;
   shippments: SendItemsDetails[];
+  email: string;
 }
 
 const userContext = createContext<any>(null);
