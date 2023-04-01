@@ -35,7 +35,7 @@
       "pickupDate": "12 th",
       "pickupTime": "12:3",
       "deliveryPartnerId": 2,
-      "customerId": 12,
+      "customerId": 11,
       "status": "pending"
     },
     {
@@ -44,7 +44,7 @@
       "pickupDate": "17 th",
       "pickupTime": "18:3",
       "deliveryPartnerId": 3,
-      "customerId": 12,
+      "customerId": 11,
       "status": "pending"
     },
     {

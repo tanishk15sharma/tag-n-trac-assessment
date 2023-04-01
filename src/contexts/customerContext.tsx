@@ -24,8 +24,10 @@ const UserContextProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     (async () => {
       try {
+        const { id } = JSON.parse(localStorage.getItem("userInfo") as string);
+
         const { status, data } = await axios.get(
-          `http://localhost:3000/shippments?customerId=12`
+          `http://localhost:3000/shippments?customerId=${id}`
         );
         if (status === 200) {
           setUserData((previousData) => ({
