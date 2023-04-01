@@ -8,3 +8,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.road {
+  border-radius: 20% 20% 0 0;
+  -webkit-border-radius: 50% 50% 0 0;
+  min-height: 20px;
+  min-width: 60%;
+  max-width: 60%;
+  border-bottom: 2px solid #6b7280;
+  border-style: dashed;
+}
