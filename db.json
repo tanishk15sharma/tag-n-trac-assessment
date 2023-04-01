@@ -30,31 +30,28 @@
   ],
   "shippments": [
     {
-      "pickup": "LIG",
-      "drop": "MIG",
-      "pickupDate": "12 th",
-      "pickupTime": "12:3",
-      "deliveryPartnerId": 2,
-      "customerId": 11,
-      "status": "pending"
+      "pickup": "LIG nehru nagar",
+      "drop": "78 sector",
+      "pickupDate": "2023-04-03",
+      "pickupTime": "10:30",
+      "status": "",
+      "id": 1
     },
     {
-      "pickup": "vijay nagar",
-      "drop": "bypass",
-      "pickupDate": "17 th",
-      "pickupTime": "18:3",
-      "deliveryPartnerId": 3,
-      "customerId": 11,
-      "status": "pending"
+      "pickup": "Bangali Square",
+      "drop": "Geeta bhavan",
+      "pickupDate": "2023-04-07",
+      "pickupTime": "23:15",
+      "status": "",
+      "id": 2
     },
     {
-      "pickup": "rajwada",
-      "drop": "abroad",
-      "pickupDate": "21 th",
-      "pickupTime": "1:30",
-      "deliveryPartnerId": 5,
-      "customerId": 16,
-      "status": "pending"
+      "pickup": "140 sector",
+      "drop": "napinia",
+      "pickupDate": "2023-04-13",
+      "pickupTime": "00:36",
+      "status": "",
+      "id": 3
     }
   ]
 }

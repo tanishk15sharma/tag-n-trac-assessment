@@ -12,9 +12,9 @@ const CustomerDashboard = () => {
           <section className="w-[60%]">
             <h1 className="text-3xl">Shippments</h1>
             <ul>
-              {userData?.shippments.map((shippment, index) => (
+              {userData?.shippments?.map((shippment: any, index: number) => (
                 <li
-                  className=" flex my-3 bg-gray-50 justify-between p-4 items-center"
+                  className=" flex my-3 bg-gray-50 justify-between p-4 items-start"
                   key={index}
                 >
                   <div>
@@ -24,12 +24,13 @@ const CustomerDashboard = () => {
                     <p>{shippment.pickup}</p>
                     <span className="text-sm text-gray-400">
                       {shippment.pickupDate}
-                    </span>
+                    </span>{" "}
+                    |
                     <span className="text-sm text-gray-400">
                       {shippment.pickupTime}
                     </span>
                   </div>
-                  <div className="road ">
+                  <div className="road self-end	">
                     <h6 className="text-[8px] font-semibold uppercase">
                       {shippment.status}
                     </h6>

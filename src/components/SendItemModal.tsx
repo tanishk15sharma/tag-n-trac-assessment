@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { deliveryPartners } from "../mockData/deliveryPartners";
-
+import axios from "axios";
+import { useUser } from "../contexts/customerContext";
 export interface SendItemsDetails {
   pickup: string;
   drop: string;
@@ -23,6 +24,7 @@ const SendItemModal = ({ setModal }: { setModal: () => void }) => {
     status: "",
   });
   const captchaCharacters = "abcd1234";
+  const { userData, setUserData } = useUser();
 
   const generateCaptcha = () => {
     let result = "";
@@ -50,8 +52,23 @@ const SendItemModal = ({ setModal }: { setModal: () => void }) => {
     }));
   };
 
-  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+    try {
+      e.preventDefault();
+      const { status, data } = await axios.post(
+        "http://localhost:3000/shippments",
+        sendItemDetails
+      );
+      if (status === 201) {
+        setUserData((previousData) => ({
+          ...previousData,
+          shippments: [...userData?.shippments, data],
+        }));
+        return setModal();
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

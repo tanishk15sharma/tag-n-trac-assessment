@@ -10,7 +10,7 @@ import {
 import { SendItemsDetails } from "../components/SendItemModal";
 
 interface UserDetails {
-  shippments: SendItemsDetails[];
+  shippments: SendItemsDetails[] | any;
 }
 
 const userContext = createContext<{
@@ -19,7 +19,9 @@ const userContext = createContext<{
 } | null>(null);
 
 const UserContextProvider = ({ children }: { children: ReactNode }) => {
-  const [userData, setUserData] = useState<UserDetails | null>(null);
+  const [userData, setUserData] = useState<UserDetails | null>({
+    shippments: [],
+  });
 
   useEffect(() => {
     (async () => {
