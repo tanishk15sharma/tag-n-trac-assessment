@@ -21,7 +21,7 @@ const SendItemModal = ({ setModal }: { setModal: () => void }) => {
     pickupTime: "",
     deliveryPartnerId: undefined,
     customerId: undefined,
-    status: "",
+    status: "Pending",
   });
   const captchaCharacters = "abcd1234";
   const { userData, setUserData } = useUser();
