@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { useUser } from "../contexts/customerContext";
-import { customers } from "../mockData/customers";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -14,7 +12,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const { setUserDetails } = useUser();
+
   const navigate = useNavigate();
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,8 +40,9 @@ const Login = () => {
           });
           return alert("User not found");
         }
-        setUserDetails(data[0]);
-        navigate("/dashboard");
+        delete data[0].password;
+        localStorage.setItem("userInfo", JSON.stringify(data[0]));
+        return navigate("/dashboard");
       }
     } catch (err) {
       console.log(err);

@@ -27,5 +27,34 @@
       "password": "5555",
       "role": "customer"
     }
+  ],
+  "shippments": [
+    {
+      "pickup": "LIG",
+      "drop": "MIG",
+      "pickupDate": "12 th",
+      "pickupTime": "12:3",
+      "deliveryPartnerId": 2,
+      "customerId": 12,
+      "status": "pending"
+    },
+    {
+      "pickup": "vijay nagar",
+      "drop": "bypass",
+      "pickupDate": "17 th",
+      "pickupTime": "18:3",
+      "deliveryPartnerId": 3,
+      "customerId": 12,
+      "status": "pending"
+    },
+    {
+      "pickup": "rajwada",
+      "drop": "abroad",
+      "pickupDate": "21 th",
+      "pickupTime": "1:30",
+      "deliveryPartnerId": 5,
+      "customerId": 16,
+      "status": "pending"
+    }
   ]
 }

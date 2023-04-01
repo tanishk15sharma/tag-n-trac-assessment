@@ -1,25 +1,47 @@
-import { createContext, ReactNode, useState, useContext } from "react";
+import axios from "axios";
+
+import {
+  createContext,
+  ReactNode,
+  useState,
+  useContext,
+  useEffect,
+} from "react";
 import { SendItemsDetails } from "../components/SendItemModal";
 
 interface UserDetails {
-  _id: number;
-  name: string;
-  profile: string;
   shippments: SendItemsDetails[];
-  email: string;
 }
 
 const userContext = createContext<{
-  userDetails: UserDetails | null;
-  setUserDetails: React.Dispatch<React.SetStateAction<UserDetails | null>>;
+  userData: UserDetails | null;
+  setUserData: React.Dispatch<React.SetStateAction<UserDetails | null>>;
 } | null>(null);
 
 const UserContextProvider = ({ children }: { children: ReactNode }) => {
-  const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
+  const [userData, setUserData] = useState<UserDetails | null>(null);
 
-  console.log(userDetails);
+  useEffect(() => {
+    (async () => {
+      try {
+        const { status, data } = await axios.get(
+          `http://localhost:3000/shippments?customerId=12`
+        );
+        if (status === 200) {
+          setUserData((previousData) => ({
+            ...previousData,
+            shippments: data,
+          }));
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }, []);
+  console.log(userData);
+
   return (
-    <userContext.Provider value={{ userDetails, setUserDetails }}>
+    <userContext.Provider value={{ userData, setUserData }}>
       {children}
     </userContext.Provider>
   );

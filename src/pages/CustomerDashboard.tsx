@@ -3,6 +3,7 @@ import { SendItemModal } from "../components/SendItemModal";
 
 const CustomerDashboard = () => {
   const [toggleSendItemModal, setToggleSendItemModal] = useState(false);
+
   return (
     <div className="m-10 mx-20 ">
       <button

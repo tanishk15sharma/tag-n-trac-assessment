@@ -6,7 +6,7 @@ export interface SendItemsDetails {
   drop: string;
   pickupDate: string;
   pickupTime: string;
-  DeliveryPartnerId: number | undefined;
+  deliveryPartnerId: number | undefined;
   status: string;
 }
 
@@ -17,7 +17,7 @@ const SendItemModal = ({ setModal }: { setModal: () => void }) => {
     drop: "",
     pickupDate: "",
     pickupTime: "",
-    DeliveryPartnerId: undefined,
+    deliveryPartnerId: undefined,
     status: "",
   });
   const captchaCharacters = "abcd1234";
