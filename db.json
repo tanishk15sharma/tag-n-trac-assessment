@@ -30,22 +30,6 @@
   ],
   "shippments": [
     {
-      "pickup": "LIG nehru nagar",
-      "drop": "78 sector",
-      "pickupDate": "2023-04-03",
-      "pickupTime": "10:30",
-      "status": "",
-      "id": 1
-    },
-    {
-      "pickup": "Bangali Square",
-      "drop": "Geeta bhavan",
-      "pickupDate": "2023-04-07",
-      "pickupTime": "23:15",
-      "status": "",
-      "id": 2
-    },
-    {
       "pickup": "140 sector",
       "drop": "napinia",
       "pickupDate": "2023-04-13",
