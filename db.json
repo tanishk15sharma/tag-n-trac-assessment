@@ -28,40 +28,37 @@
       "role": "customer"
     }
   ],
-  "shippments": [
+  "shippments": [],
+  "deliveryPartners": [
     {
-      "pickup": "144 sector222",
-      "drop": "napinia",
-      "pickupDate": "2023-04-13",
-      "pickupTime": "00:36",
-      "status": "",
-      "id": 3
+      "name": "Tanishk sharma",
+      "id": 51,
+      "isAvailable": true,
+      "area": "LIG"
     },
     {
-      "pickup": "sanjay nagar",
-      "drop": "55 secotr",
-      "pickupDate": "2023-04-07",
-      "pickupTime": "11:10",
-      "status": "Pending",
-      "id": 4
+      "name": "Vijay jain",
+      "id": 52,
+      "isAvailable": true,
+      "area": "Vijay nagar"
     },
     {
-      "pickup": "TCS square",
-      "drop": "nanda nagar",
-      "pickupDate": "2023-04-08",
-      "pickupTime": "05:04",
-      "status": "Pending",
-      "DeliveryPartnerId": "54",
-      "id": 5
+      "name": "Rahul kumar",
+      "id": 53,
+      "isAvailable": true,
+      "area": "sanjay palace"
     },
     {
-      "pickup": "123",
-      "drop": "44466",
-      "pickupDate": "2023-03-28",
-      "pickupTime": "17:42",
-      "status": "Pending",
-      "DeliveryPartnerId": "53",
-      "id": 6
+      "name": "Ansh yadav",
+      "id": 54,
+      "isAvailable": true,
+      "area": "BYpass"
+    },
+    {
+      "name": "Raghav das",
+      "id": 55,
+      "isAvailable": false,
+      "area": "ABroad"
     }
   ]
 }

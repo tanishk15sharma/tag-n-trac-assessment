@@ -8,7 +8,7 @@ export interface SendItemsDetails {
   pickupDate: string;
   pickupTime: string;
   deliveryPartnerId: number | undefined;
-  customerId: number | undefined;
+  customerId: number;
   status: string;
   id?: number;
 }
@@ -21,6 +21,8 @@ const SendItemModal = ({
   editDetails?: SendItemsDetails;
 }) => {
   const [generatedCaptcha, setGeneratedCaptcha] = useState("");
+  const { id } = JSON.parse(localStorage.getItem("userInfo") as string);
+
   const [sendItemDetails, setSendItemDetails] = useState<SendItemsDetails>(
     editDetails
       ? editDetails
@@ -30,7 +32,7 @@ const SendItemModal = ({
           pickupDate: "",
           pickupTime: "",
           deliveryPartnerId: undefined,
-          customerId: undefined,
+          customerId: id,
           status: "Pending",
         }
   );
