@@ -5,29 +5,62 @@
       "email": "harish@gmail.com",
       "id": 11,
       "profile": "",
-      "shippments": [],
       "password": "12345",
-      "role": "customer"
+      "role": "customer",
+      "phone": 7222996021
     },
     {
       "name": "Palak Jain",
       "email": "palak@gmail.com",
       "id": 12,
       "profile": "",
-      "shippments": [],
       "password": "12345",
-      "role": "customer"
+      "role": "customer",
+      "phone": 9122103120
+    },
+    {
+      "name": "Tanishk Sharma",
+      "email": "tanishk@gmail.com",
+      "id": 13,
+      "profile": "",
+      "password": "12345",
+      "role": "deliveryPartner",
+      "area": "LIG and MIG",
+      "isAvailable": true
+    },
+    {
+      "name": "Raju Yadav",
+      "email": "raju@gmail.com",
+      "id": 14,
+      "profile": "",
+      "password": "12345",
+      "role": "deliveryPartner",
+      "area": "vijay nagar",
+      "isAvailable": true
     }
   ],
   "shippments": [
     {
-      "pickup": "140 sector",
-      "drop": "nanda nagar",
+      "pickup": "LIG nehru nagar",
+      "drop": "raj nagar",
       "pickupDate": "2023-04-05",
-      "pickupTime": "10:01",
+      "pickupTime": "02:03",
+      "deliveryPartnerId": "14",
       "customerId": 11,
-      "status": "Pending",
+      "status": "Canceled",
+      "number": 7222996021,
       "id": 1
+    },
+    {
+      "pickup": "Bangali Square",
+      "drop": "raj chok edited",
+      "pickupDate": "2023-04-06",
+      "pickupTime": "02:03",
+      "deliveryPartnerId": "14",
+      "customerId": 11,
+      "status": "Received",
+      "number": 7222996021,
+      "id": 2
     }
   ],
   "deliveryPartners": [
