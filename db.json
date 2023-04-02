@@ -5,7 +5,6 @@
       "email": "harish@gmail.com",
       "id": 11,
       "profile": "",
-      "shippments": [],
       "password": "12345",
       "role": "customer"
     },
@@ -14,9 +13,16 @@
       "email": "palak@gmail.com",
       "id": 12,
       "profile": "",
-      "shippments": [],
       "password": "12345",
       "role": "customer"
+    },
+    {
+      "name": "Tanishk sharma",
+      "email": "tanishk@gmail.com",
+      "id": 13,
+      "profile": "",
+      "password": "12345",
+      "role": "deliveryPartner"
     }
   ],
   "shippments": [],

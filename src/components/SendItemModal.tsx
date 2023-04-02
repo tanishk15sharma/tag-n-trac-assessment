@@ -57,7 +57,7 @@ const SendItemModal = ({
     }
     setGeneratedCaptcha(result);
   };
-  console.log(deliveryPartners);
+
   useEffect(() => {
     generateCaptcha();
 

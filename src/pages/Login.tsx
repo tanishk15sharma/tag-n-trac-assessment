@@ -42,7 +42,12 @@ const Login = () => {
         }
         delete data[0].password;
         localStorage.setItem("userInfo", JSON.stringify(data[0]));
-        return navigate("/dashboard");
+
+        if (data[0].role === "customer") {
+          return navigate("/dashboard");
+        } else {
+          return navigate("/delivery-dashboard");
+        }
       }
     } catch (err) {
       console.log(err);
