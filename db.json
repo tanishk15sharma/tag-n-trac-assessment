@@ -19,17 +19,7 @@
       "role": "customer"
     }
   ],
-  "shippments": [
-    {
-      "pickup": "140 sector",
-      "drop": "nanda nagar",
-      "pickupDate": "2023-04-05",
-      "pickupTime": "10:01",
-      "customerId": 11,
-      "status": "Pending",
-      "id": 1
-    }
-  ],
+  "shippments": [],
   "deliveryPartners": [
     {
       "name": "Tanishk sharma",
