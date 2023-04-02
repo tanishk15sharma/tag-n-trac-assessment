@@ -17,18 +17,19 @@
       "shippments": [],
       "password": "12345",
       "role": "customer"
-    },
-    {
-      "name": "Palak Jain",
-      "email": "palak@gmail.com",
-      "id": 13,
-      "profile": "",
-      "shippments": [],
-      "password": "5555",
-      "role": "customer"
     }
   ],
-  "shippments": [],
+  "shippments": [
+    {
+      "pickup": "140 sector",
+      "drop": "nanda nagar",
+      "pickupDate": "2023-04-05",
+      "pickupTime": "10:01",
+      "customerId": 11,
+      "status": "Pending",
+      "id": 1
+    }
+  ],
   "deliveryPartners": [
     {
       "name": "Tanishk sharma",

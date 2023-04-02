@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { deliveryPartners } from "../mockData/deliveryPartners";
 import axios from "axios";
 import { useUser } from "../contexts/customerContext";
 export interface SendItemsDetails {
@@ -13,6 +12,13 @@ export interface SendItemsDetails {
   id?: number;
 }
 
+interface DeliveryPartner {
+  area: string;
+  id: number;
+  isAvailable: boolean;
+  name: string;
+}
+
 const SendItemModal = ({
   setModal,
   editDetails,
@@ -22,7 +28,9 @@ const SendItemModal = ({
 }) => {
   const [generatedCaptcha, setGeneratedCaptcha] = useState("");
   const { id } = JSON.parse(localStorage.getItem("userInfo") as string);
-
+  const [deliveryPartners, setDeliveryPartners] = useState<DeliveryPartner[]>(
+    []
+  );
   const [sendItemDetails, setSendItemDetails] = useState<SendItemsDetails>(
     editDetails
       ? editDetails
@@ -49,9 +57,22 @@ const SendItemModal = ({
     }
     setGeneratedCaptcha(result);
   };
-
+  console.log(deliveryPartners);
   useEffect(() => {
     generateCaptcha();
+
+    (async () => {
+      try {
+        const { status, data } = await axios.get(
+          "http://localhost:3000/deliveryPartners"
+        );
+        if (status === 200) {
+          return setDeliveryPartners(data);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    })();
   }, []);
 
   const handleFormInput = (
@@ -208,7 +229,7 @@ const SendItemModal = ({
                     className="p-2 border rounded-md"
                     name="DeliveryPartnerId"
                   >
-                    {deliveryPartners.map((partner) => (
+                    {deliveryPartners?.map((partner) => (
                       <option
                         key={partner.id}
                         className={`p-2 m-2 font-medium ${
