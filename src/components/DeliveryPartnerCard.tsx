@@ -40,7 +40,7 @@ const DeliveryPartnerCard = ({
 
   return (
     <li
-      className={`rounded w-[30%] justify-between p-4 px-6 flex
+      className={`rounded min-w-[30%] justify-between p-4 px-6 flex
     ${bgColor()}
     `}
     >

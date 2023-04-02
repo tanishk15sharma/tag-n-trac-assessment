@@ -47,13 +47,13 @@
       "pickupTime": "02:03",
       "deliveryPartnerId": "14",
       "customerId": 11,
-      "status": "Delivered",
+      "status": "Canceled",
       "number": 7222996021,
       "id": 1
     },
     {
       "pickup": "Bangali Square",
-      "drop": "raj chok",
+      "drop": "raj chok edited",
       "pickupDate": "2023-04-06",
       "pickupTime": "02:03",
       "deliveryPartnerId": "14",
