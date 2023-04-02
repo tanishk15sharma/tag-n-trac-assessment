@@ -8,15 +8,9 @@ export interface SendItemsDetails {
   pickupTime: string;
   deliveryPartnerId: number | undefined;
   customerId: number;
+  number: number;
   status: string;
   id?: number;
-}
-
-interface DeliveryPartner {
-  area: string;
-  id: number;
-  isAvailable: boolean;
-  name: string;
 }
 
 const SendItemModal = ({
@@ -27,10 +21,8 @@ const SendItemModal = ({
   editDetails?: SendItemsDetails;
 }) => {
   const [generatedCaptcha, setGeneratedCaptcha] = useState("");
-  const { id } = JSON.parse(localStorage.getItem("userInfo") as string);
-  const [deliveryPartners, setDeliveryPartners] = useState<DeliveryPartner[]>(
-    []
-  );
+  const { id, phone } = JSON.parse(localStorage.getItem("userInfo") as string);
+  const [deliveryPartners, setDeliveryPartners] = useState<any>([]);
   const [sendItemDetails, setSendItemDetails] = useState<SendItemsDetails>(
     editDetails
       ? editDetails
@@ -42,6 +34,7 @@ const SendItemModal = ({
           deliveryPartnerId: undefined,
           customerId: id,
           status: "Pending",
+          number: phone,
         }
   );
   const captchaCharacters = "abcd1234";
@@ -64,9 +57,10 @@ const SendItemModal = ({
     (async () => {
       try {
         const { status, data } = await axios.get(
-          "http://localhost:3000/deliveryPartners"
+          "http://localhost:3000/users?role=deliveryPartner"
         );
         if (status === 200) {
+          console.log(data);
           return setDeliveryPartners(data);
         }
       } catch (err) {
@@ -74,6 +68,7 @@ const SendItemModal = ({
       }
     })();
   }, []);
+  console.log(deliveryPartners);
 
   const handleFormInput = (
     e:
@@ -225,11 +220,10 @@ const SendItemModal = ({
                   </label>
                   <select
                     onChange={(e) => handleFormInput(e)}
-                    id="deliveryPartner"
                     className="p-2 border rounded-md"
-                    name="DeliveryPartnerId"
+                    name="deliveryPartnerId"
                   >
-                    {deliveryPartners?.map((partner) => (
+                    {deliveryPartners?.map((partner: any) => (
                       <option
                         key={partner.id}
                         className={`p-2 m-2 font-medium ${
@@ -240,7 +234,7 @@ const SendItemModal = ({
                         disabled={!partner.isAvailable}
                         value={partner.id}
                       >
-                        {partner.name},{partner.area}
+                        {partner.name}
                       </option>
                     ))}
                   </select>
