@@ -47,7 +47,7 @@
       "pickupTime": "02:03",
       "deliveryPartnerId": "14",
       "customerId": 11,
-      "status": "Pending",
+      "status": "Delivered",
       "number": 7222996021,
       "id": 1
     },
@@ -58,7 +58,7 @@
       "pickupTime": "02:03",
       "deliveryPartnerId": "14",
       "customerId": 11,
-      "status": "Pending",
+      "status": "Canceled",
       "number": 7222996021,
       "id": 2
     }

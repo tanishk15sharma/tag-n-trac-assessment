@@ -32,6 +32,7 @@ const DeliveryPartnerDashboard = () => {
         <ul className="flex gap-6 py-4">
           {shippmentsAssigned.map((shippment) => (
             <DeliveryPartnerCard
+              setAllShippments={setShippmentsAssigned}
               shippmentDetails={shippment}
               key={shippment.id}
             />
