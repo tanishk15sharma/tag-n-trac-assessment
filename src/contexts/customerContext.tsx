@@ -6,11 +6,12 @@ import {
   useState,
   useContext,
   useEffect,
+  useMemo,
 } from "react";
 import { SendItemsDetails } from "../components/SendItemModal";
 
 interface UserDetails {
-  shippments: SendItemsDetails[] | any;
+  shippments?: SendItemsDetails[];
 }
 
 const userContext = createContext<{
@@ -43,12 +44,8 @@ const UserContextProvider = ({ children }: { children: ReactNode }) => {
     })();
   }, []);
   console.log(userData);
-
-  return (
-    <userContext.Provider value={{ userData, setUserData }}>
-      {children}
-    </userContext.Provider>
-  );
+  const value = useMemo(() => ({ userData, setUserData }), [userData]);
+  return <userContext.Provider value={value}>{children}</userContext.Provider>;
 };
 const useUser = () => {
   const context = useContext(userContext);

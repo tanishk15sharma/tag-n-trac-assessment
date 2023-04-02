@@ -24,7 +24,7 @@ const SendItemModal = ({ setModal }: { setModal: () => void }) => {
     status: "Pending",
   });
   const captchaCharacters = "abcd1234";
-  const { userData, setUserData } = useUser();
+  const { setUserData } = useUser();
 
   const generateCaptcha = () => {
     let result = "";
@@ -62,7 +62,9 @@ const SendItemModal = ({ setModal }: { setModal: () => void }) => {
       if (status === 201) {
         setUserData((previousData) => ({
           ...previousData,
-          shippments: [...userData?.shippments, data],
+          shippments: previousData?.shippments
+            ? [...previousData?.shippments, data]
+            : [],
         }));
         return setModal();
       }
@@ -96,6 +98,7 @@ const SendItemModal = ({ setModal }: { setModal: () => void }) => {
             <input
               type="text"
               id="pick"
+              value={sendItemDetails.pickup}
               onChange={(e) => handleFormInput(e)}
               name="pickup"
               className="border py-2 rounded-md px-2"
@@ -111,6 +114,7 @@ const SendItemModal = ({ setModal }: { setModal: () => void }) => {
             <input
               type="text"
               id="drop"
+              value={sendItemDetails.drop}
               onChange={(e) => handleFormInput(e)}
               name="drop"
               className="border py-2 rounded-md px-2"
@@ -128,6 +132,7 @@ const SendItemModal = ({ setModal }: { setModal: () => void }) => {
                 <input
                   type="date"
                   id="date"
+                  value={sendItemDetails.pickupDate}
                   onChange={(e) => handleFormInput(e)}
                   name="pickupDate"
                   className="border py-2 rounded-md px-2"
@@ -145,6 +150,7 @@ const SendItemModal = ({ setModal }: { setModal: () => void }) => {
                 <input
                   type="time"
                   id="time"
+                  value={sendItemDetails.pickupTime}
                   onChange={(e) => handleFormInput(e)}
                   name="pickupTime"
                   className="border py-2 rounded-md px-2"

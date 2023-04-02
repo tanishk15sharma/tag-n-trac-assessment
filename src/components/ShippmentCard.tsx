@@ -12,9 +12,11 @@ const ShippmentCard = ({ shippmentDetails }: any) => {
     if (status === 200) {
       setUserData((previousData) => ({
         ...previousData,
-        shippments: previousData?.shippments.filter(
-          (shippment: any) => shippment.id !== shippmentId
-        ),
+        shippments: previousData?.shippments
+          ? previousData?.shippments.filter(
+              (shippment: any) => shippment.id !== shippmentId
+            )
+          : [],
       }));
     }
     try {
