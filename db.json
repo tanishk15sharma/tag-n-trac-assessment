@@ -17,41 +17,49 @@
       "shippments": [],
       "password": "12345",
       "role": "customer"
-    },
-    {
-      "name": "Palak Jain",
-      "email": "palak@gmail.com",
-      "id": 13,
-      "profile": "",
-      "shippments": [],
-      "password": "5555",
-      "role": "customer"
     }
   ],
   "shippments": [
     {
-      "pickup": "LIG nehru nagar",
-      "drop": "78 sector",
-      "pickupDate": "2023-04-03",
-      "pickupTime": "10:30",
-      "status": "",
-      "id": 1
-    },
-    {
-      "pickup": "Bangali Square",
-      "drop": "Geeta bhavan",
-      "pickupDate": "2023-04-07",
-      "pickupTime": "23:15",
-      "status": "",
-      "id": 2
-    },
-    {
       "pickup": "140 sector",
-      "drop": "napinia",
-      "pickupDate": "2023-04-13",
-      "pickupTime": "00:36",
-      "status": "",
-      "id": 3
+      "drop": "nanda nagar",
+      "pickupDate": "2023-04-05",
+      "pickupTime": "10:01",
+      "customerId": 11,
+      "status": "Pending",
+      "id": 1
+    }
+  ],
+  "deliveryPartners": [
+    {
+      "name": "Tanishk sharma",
+      "id": 51,
+      "isAvailable": true,
+      "area": "LIG"
+    },
+    {
+      "name": "Vijay jain",
+      "id": 52,
+      "isAvailable": true,
+      "area": "Vijay nagar"
+    },
+    {
+      "name": "Rahul kumar",
+      "id": 53,
+      "isAvailable": true,
+      "area": "sanjay palace"
+    },
+    {
+      "name": "Ansh yadav",
+      "id": 54,
+      "isAvailable": true,
+      "area": "BYpass"
+    },
+    {
+      "name": "Raghav das",
+      "id": 55,
+      "isAvailable": false,
+      "area": "ABroad"
     }
   ]
 }
