@@ -30,7 +30,7 @@
   ],
   "shippments": [
     {
-      "pickup": "140 sector",
+      "pickup": "144 sector222",
       "drop": "napinia",
       "pickupDate": "2023-04-13",
       "pickupTime": "00:36",
@@ -44,6 +44,24 @@
       "pickupTime": "11:10",
       "status": "Pending",
       "id": 4
+    },
+    {
+      "pickup": "TCS square",
+      "drop": "nanda nagar",
+      "pickupDate": "2023-04-08",
+      "pickupTime": "05:04",
+      "status": "Pending",
+      "DeliveryPartnerId": "54",
+      "id": 5
+    },
+    {
+      "pickup": "123",
+      "drop": "44466",
+      "pickupDate": "2023-03-28",
+      "pickupTime": "17:42",
+      "status": "Pending",
+      "DeliveryPartnerId": "53",
+      "id": 6
     }
   ]
 }
