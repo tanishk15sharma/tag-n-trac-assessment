@@ -46,7 +46,7 @@ const DeliveryPartnerDashboard = () => {
                 All
               </option>
               <option value="Pending">Pending</option>
-              <option value="Recived">Recived</option>
+              <option value="Received">Received</option>
               <option value="Canceled">Canceled</option>
               <option value="Delivered">Delivered</option>
             </select>
