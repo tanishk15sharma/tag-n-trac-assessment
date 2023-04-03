@@ -83,7 +83,7 @@ const DeliveryPartnerSignup = () => {
   return (
     <section className="flex items-center m-2 mx-8 pt-10 gap-10">
       <div className="max-w-full grow basis-0">
-        <img src={"/images/deliverytruck.png"} alt="login-poster" />
+        <img src={"/images/welcomecats.png"} alt="login-poster" />
       </div>
       <div className="max-w-full grow basis-0 mx-10 px-12">
         <form onSubmit={(e) => submitHandler(signupDetails, e)}>
