@@ -51,6 +51,15 @@ const CustomerSignup = () => {
   ) => {
     try {
       e.preventDefault();
+      if (
+        !signupDetails.email ||
+        !signupDetails.name ||
+        !signupDetails.password ||
+        !signupDetails.phone
+      ) {
+        return alert("Please fill all the details");
+      }
+
       const { status, data } = await axios.post(
         "http://localhost:3000/users",
         signupDetails

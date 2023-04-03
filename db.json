@@ -37,30 +37,6 @@
       "role": "deliveryPartner",
       "area": "vijay nagar",
       "isAvailable": true
-    },
-    {
-      "name": "Seema",
-      "email": "sharma@stride.ai",
-      "password": "12345",
-      "role": "customer",
-      "phone": "21122121",
-      "id": 15
-    },
-    {
-      "name": "Seema",
-      "email": "sharma@stride.ai",
-      "password": "12345",
-      "role": "customer",
-      "phone": "21122121",
-      "id": 16
-    },
-    {
-      "name": "hero",
-      "email": "hero@gmail.com",
-      "password": "1234",
-      "role": "customer",
-      "phone": "12213213132231",
-      "id": 17
     }
   ],
   "shippments": [
