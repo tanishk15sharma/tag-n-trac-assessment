@@ -16,11 +16,19 @@ const signupFields = [
     placeholder: "*********",
     type: "password",
   },
-  { title: "Phone Number", name: "number", placeholder: "+91", type: "number" },
+  { title: "Phone Number", name: "phone", placeholder: "+91", type: "number" },
 ];
 
+interface SignupDetails {
+  name: string;
+  email: string;
+  password: string;
+  role: string;
+  phone: number;
+}
+
 const CustomerSignup = () => {
-  const [SignupDetails, setSignupDetails] = useState({
+  const [signupDetails, setSignupDetails] = useState<SignupDetails>({
     name: "",
     email: "",
     password: "",
@@ -36,15 +44,33 @@ const CustomerSignup = () => {
       [e.target.name]: e.target.value,
     }));
   };
+
+  const submitHandler = async (
+    signupDetails: SignupDetails,
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    try {
+      e.preventDefault();
+      const { status, data } = await axios.post(
+        "http://localhost:3000/users",
+        signupDetails
+      );
+      if (status === 201) {
+        localStorage.setItem("userInfo", JSON.stringify(data));
+        navigate("/dashboard");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <section className="flex items-center m-2 mx-8 pt-16 gap-10">
       <div className="max-w-full grow basis-0">
         <img src={"/images/deliverytruck.png"} alt="login-poster" />
       </div>
       <div className="max-w-full grow basis-0 mx-10 px-12">
-        <form
-        // onSubmit={(e) => submitHandler(loginDetails, e)}
-        >
+        <form onSubmit={(e) => submitHandler(signupDetails, e)}>
           <h2 className="text-3xl font-semibold mb-6">Create your account</h2>
           {signupFields.map((field) => {
             return (
@@ -55,8 +81,7 @@ const CustomerSignup = () => {
                 <input
                   type={field.type}
                   id={field.name}
-                  //   value={loginDetails.email}
-                  //   onChange={(e) => inputHandler(e)}
+                  onChange={(e) => inputHandler(e)}
                   name={field.name}
                   placeholder={field.placeholder}
                   className=" p-3 border border-gray rounded-md focus:outline-blue-400  my-2"
@@ -64,20 +89,6 @@ const CustomerSignup = () => {
               </div>
             );
           })}
-
-          <div className="flex flex-col">
-            <label htmlFor="username" className="font-medium">
-              Email
-            </label>
-            <input
-              type="text"
-              //   value={loginDetails.email}
-              //   onChange={(e) => inputHandler(e)}
-              name="email"
-              placeholder="User@gmail.com"
-              className=" p-3 border border-gray rounded-md focus:outline-blue-400 mt-1 mb-8"
-            />
-          </div>
 
           <button className=" block bg-blue-500 text-white font-semibold w-full py-3 rounded-md">
             LESS GO
