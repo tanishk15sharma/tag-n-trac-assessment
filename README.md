@@ -3,6 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Tech Stack
+
 - ReactJS
 - Typescript
 - TailwindCSS
@@ -13,11 +14,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Railway - Backedn Deployed
 
 # Dummay login details for Customer:
+
 email:harish@gmail.com
 password:12345
 
-
 # Dummay login details for Delivery Partner:
-email:shruti@gmail.com
+
+email:raju@gmail.com
 password:12345
- 

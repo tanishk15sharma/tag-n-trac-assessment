@@ -63,7 +63,7 @@ const DeliveryPartnerCard = ({
         <p>STATUS: {shippmentDetails.status}</p>
         <div className="flex justify-around items-center">
           <button
-            title="Recive"
+            title="Receive"
             className="flex hover:bg-gray-100 rounded-full px-2 py-[6px]"
             onClick={() => editHandler("Received")}
           >

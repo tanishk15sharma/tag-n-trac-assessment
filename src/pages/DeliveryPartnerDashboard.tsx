@@ -57,7 +57,7 @@ const DeliveryPartnerDashboard = () => {
             No data
           </h1>
         ) : (
-          <ul className="flex gap-6 py-4">
+          <ul className="flex gap-6 py-4 flex-wrap">
             {sortedShippments.map((shippment) => (
               <DeliveryPartnerCard
                 setAllShippments={setShippmentsAssigned}
