@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import {
   createContext,
   ReactNode,
@@ -24,26 +22,6 @@ const UserContextProvider = ({ children }: { children: ReactNode }) => {
     shippments: [],
   });
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const { id } = JSON.parse(localStorage.getItem("userInfo") as string);
-
-        const { status, data } = await axios.get(
-          `http://localhost:3000/shippments?customerId=${id}`
-        );
-        if (status === 200) {
-          setUserData((previousData) => ({
-            ...previousData,
-            shippments: data,
-          }));
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    })();
-  }, []);
-  console.log(userData);
   const value = useMemo(() => ({ userData, setUserData }), [userData]);
   return <userContext.Provider value={value}>{children}</userContext.Provider>;
 };

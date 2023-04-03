@@ -1,11 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SendItemModal } from "../components/SendItemModal";
 import { ShippmentCard } from "../components/ShippmentCard";
 import { useUser } from "../contexts/customerContext";
-
+import axios from "axios";
 const CustomerDashboard = () => {
   const [toggleSendItemModal, setToggleSendItemModal] = useState(false);
-  const { userData } = useUser();
+  const { userData, setUserData } = useUser();
+
+  let userInfo = JSON.parse(localStorage.getItem("userInfo") as string);
+  useEffect(() => {
+    (async () => {
+      try {
+        if (userInfo !== null) {
+          const { status, data } = await axios.get(
+            `http://localhost:3000/shippments?customerId=${userInfo.id}`
+          );
+          if (status === 200) {
+            setUserData((previousData) => ({
+              ...previousData,
+              shippments: data,
+            }));
+          }
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }, []);
   return (
     <>
       <div className="m-10 mx-20 ">

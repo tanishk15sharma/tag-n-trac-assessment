@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Login } from "./pages/Login";
 import { DeliveryPartnerDashboard } from "./pages/DeliveryPartnerDashboard";
 import { PrivateRoutes } from "./components/PrivateRoutes";
+import { CustomerSignup } from "./pages/CustomerSignup";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             />
           </Route>
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<CustomerSignup />} />
         </Routes>
       </Router>
     </>
