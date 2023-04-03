@@ -14,7 +14,7 @@ function App() {
       <Router>
         <Routes>
           <Route element={<PrivateRoutes />}>
-            <Route path="/dashboard" element={<CustomerDashboard />} />
+            <Route path="/" element={<CustomerDashboard />} />
             <Route
               path="/delivery-dashboard"
               element={<DeliveryPartnerDashboard />}

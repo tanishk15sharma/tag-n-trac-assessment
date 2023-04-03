@@ -66,7 +66,7 @@ const CustomerSignup = () => {
       );
       if (status === 201) {
         localStorage.setItem("userInfo", JSON.stringify(data));
-        navigate("/dashboard");
+        navigate("/");
       }
     } catch (err) {
       console.log(err);

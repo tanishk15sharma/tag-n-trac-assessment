@@ -44,7 +44,7 @@ const Login = () => {
         localStorage.setItem("userInfo", JSON.stringify(data[0]));
 
         if (data[0].role === "customer") {
-          return navigate("/dashboard");
+          return navigate("/");
         } else {
           return navigate("/delivery-dashboard");
         }
