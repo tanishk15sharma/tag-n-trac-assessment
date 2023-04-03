@@ -14,7 +14,7 @@ const CustomerDashboard = () => {
       try {
         if (userInfo !== null) {
           const { status, data } = await axios.get(
-            `http://localhost:3000/shippments?customerId=${userInfo.id}`
+            `${process.env.REACT_APP_BACKEND_URL}/shippments?customerId=${userInfo.id}`
           );
           if (status === 200) {
             setUserData((previousData) => ({

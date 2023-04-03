@@ -30,7 +30,7 @@ const Login = () => {
       e.preventDefault();
 
       const { status, data } = await axios.get(
-        `http://localhost:3000/users?email=${loginDetails.email}&password=${loginDetails.password}`
+        `${process.env.REACT_APP_BACKEND_URL}/users?email=${loginDetails.email}&password=${loginDetails.password}`
       );
       if (status === 200) {
         if (data.length === 0) {

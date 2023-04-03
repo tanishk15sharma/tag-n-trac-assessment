@@ -15,7 +15,7 @@ const DeliveryPartnerDashboard = () => {
     (async () => {
       try {
         const { status, data } = await axios.get(
-          `http://localhost:3000/shippments?deliveryPartnerId=${id}`
+          `${process.env.REACT_APP_BACKEND_URL}/shippments?deliveryPartnerId=${id}`
         );
         if (status === 200) {
           setShippmentsAssigned(data);

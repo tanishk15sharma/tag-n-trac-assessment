@@ -14,7 +14,7 @@ const DeliveryPartnerCard = ({
   const editHandler = async (deliveryStatus: string) => {
     try {
       const { data, status } = await axios.put(
-        `http://localhost:3000/shippments/${shippmentDetails?.id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/shippments/${shippmentDetails?.id}`,
         { ...shippmentDetails, status: deliveryStatus }
       );
       if (status === 200) {

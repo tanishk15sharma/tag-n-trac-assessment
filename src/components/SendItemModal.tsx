@@ -57,7 +57,7 @@ const SendItemModal = ({
     (async () => {
       try {
         const { status, data } = await axios.get(
-          "http://localhost:3000/users?role=deliveryPartner"
+          `${process.env.REACT_APP_BACKEND_URL}/users?role=deliveryPartner`
         );
         if (status === 200) {
           console.log(data);
@@ -85,7 +85,7 @@ const SendItemModal = ({
     try {
       e.preventDefault();
       const { status, data } = await axios.post(
-        "http://localhost:3000/shippments",
+        `${process.env.REACT_APP_BACKEND_URL}/shippments`,
         sendItemDetails
       );
       if (status === 201) {
@@ -108,7 +108,7 @@ const SendItemModal = ({
     try {
       e.preventDefault();
       const { data, status } = await axios.put(
-        `http://localhost:3000/shippments/${editDetails?.id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/shippments/${editDetails?.id}`,
         sendItemDetails
       );
       if (status === 200) {

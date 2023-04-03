@@ -69,7 +69,7 @@ const DeliveryPartnerSignup = () => {
       }
 
       const { status, data } = await axios.post(
-        "http://localhost:3000/users",
+        `${process.env.REACT_APP_BACKEND_URL}/users`,
         signupDetails
       );
       if (status === 201) {

@@ -8,7 +8,7 @@ const ShippmentCard = ({ shippmentDetails }: any) => {
 
   const handleDelete = async (shippmentId: number) => {
     const { status } = await axios.delete(
-      `http://localhost:3000/shippments/${shippmentId}`
+      `${process.env.REACT_APP_BACKEND_URL}/shippments/${shippmentId}`
     );
 
     if (status === 200) {
