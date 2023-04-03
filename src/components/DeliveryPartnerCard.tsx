@@ -46,7 +46,7 @@ const DeliveryPartnerCard = ({
     >
       <div>
         <h6 className="text-[10px] font-semibold text-gray-400">PICKUP:</h6>
-        <h5 className="bg-gray-300 text-gray-600 text-sm w-fit px-1 rounded">
+        <h5 className="bg-blue-100 text-gray-600 text-sm w-fit px-1 rounded">
           {shippmentDetails.number}
         </h5>
         <h3>{shippmentDetails.pickup}</h3>
@@ -63,6 +63,7 @@ const DeliveryPartnerCard = ({
         <p>STATUS: {shippmentDetails.status}</p>
         <div className="flex justify-around items-center">
           <button
+            title="Recive"
             className="flex hover:bg-gray-100 rounded-full px-2 py-[6px]"
             onClick={() => editHandler("Received")}
           >
@@ -71,6 +72,7 @@ const DeliveryPartnerCard = ({
             </span>
           </button>
           <button
+            title="Deliver"
             className="flex hover:bg-gray-100 rounded-full px-2 py-[6px]"
             onClick={() => editHandler("Delivered")}
           >
@@ -79,6 +81,7 @@ const DeliveryPartnerCard = ({
             </span>
           </button>
           <button
+            title="Cancel"
             className="flex hover:bg-gray-100 rounded-full px-2 py-[6px]"
             onClick={() => editHandler("Canceled")}
           >

@@ -68,7 +68,6 @@ const SendItemModal = ({
       }
     })();
   }, []);
-  console.log(deliveryPartners);
 
   const handleFormInput = (
     e:
@@ -130,14 +129,18 @@ const SendItemModal = ({
   return (
     <main
       onClick={() => setModal()}
-      className="fixed inset-0 h-screen w-screen flex justify-center items-start z-30 bg-zinc-500"
+      className="fixed inset-0 h-screen w-screen flex justify-center items-start z-30 bg-zinc-400"
     >
       <div
         className="bg-white px-4 min-h-[40%] max-h-[80%] overflow-auto w-7/12 min-w-96 tablet:w-8/12 mobile:w-11/12 rounded shadow-2xl mt-16"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="p-4">
-          <h1 className="text-3xl font-semibold">Where to deliver ?</h1>
+          {editDetails ? (
+            <h1 className="text-3xl font-semibold">Update Delivery Details</h1>
+          ) : (
+            <h1 className="text-3xl font-semibold">Where to deliver ?</h1>
+          )}
           <h4 className="text-gray-500 text-sm">Your on demand service boy</h4>
           <form className="flex flex-col my-10">
             <label
@@ -234,7 +237,7 @@ const SendItemModal = ({
                         disabled={!partner.isAvailable}
                         value={partner.id}
                       >
-                        {partner.name}
+                        {partner.name},{partner.area}
                       </option>
                     ))}
                   </select>
@@ -243,31 +246,6 @@ const SendItemModal = ({
             </div>
 
             <div className="flex mt-8 justify-between">
-              {editDetails ? (
-                ""
-              ) : (
-                <div className="flex">
-                  <div className="flex gap-2 items-center">
-                    <div
-                      className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-300
-                  px-8 py-2 line-through font-semibold	tracking-widest	"
-                    >
-                      {generatedCaptcha}
-                    </div>
-                    <button onClick={(e) => generateCaptcha()}>
-                      <span className="material-icons-outlined dark:text-white">
-                        sync
-                      </span>
-                    </button>
-                  </div>
-                  <input
-                    // value={captchaInput}
-                    // onChange={(e) => setCaptchInput(e.target.value)}
-                    placeholder="Enter CAPTCHA"
-                    className="border py-2 rounded-md px-2"
-                  />
-                </div>
-              )}
               {editDetails ? (
                 <button
                   type="submit"
@@ -282,7 +260,7 @@ const SendItemModal = ({
                   className="bg-blue-400 py-2 w-[30%] px-3 font-semibold text-white"
                   onClick={(e) => submitHandler(e)}
                 >
-                  Pay Now
+                  SUBMIT
                 </button>
               )}
             </div>

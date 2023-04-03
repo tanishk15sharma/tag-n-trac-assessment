@@ -52,15 +52,21 @@ const DeliveryPartnerDashboard = () => {
             </select>
           </div>
         </div>
-        <ul className="flex gap-6 py-4">
-          {sortedShippments.map((shippment) => (
-            <DeliveryPartnerCard
-              setAllShippments={setShippmentsAssigned}
-              shippmentDetails={shippment}
-              key={shippment.id}
-            />
-          ))}
-        </ul>
+        {sortedShippments.length === 0 ? (
+          <h1 className="flex justify-center items-center h-[30vh] text-3xl font-semibold text-red-400">
+            No data
+          </h1>
+        ) : (
+          <ul className="flex gap-6 py-4">
+            {sortedShippments.map((shippment) => (
+              <DeliveryPartnerCard
+                setAllShippments={setShippmentsAssigned}
+                shippmentDetails={shippment}
+                key={shippment.id}
+              />
+            ))}
+          </ul>
+        )}
       </div>
     </>
   );
