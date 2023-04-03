@@ -1,1 +1,1 @@
-json-server db.json
+web: json-server db.json
