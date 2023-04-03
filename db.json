@@ -37,6 +37,16 @@
       "role": "deliveryPartner",
       "area": "vijay nagar",
       "isAvailable": true
+    },
+    {
+      "name": "devboy",
+      "email": "dev@email.com",
+      "password": "12345",
+      "role": "deliveryPartner",
+      "area": "bijay nagar",
+      "isAvailable": true,
+      "phone": "2121321123",
+      "id": 15
     }
   ],
   "shippments": [
@@ -72,6 +82,17 @@
       "status": "Delivered",
       "number": "12213213132231",
       "id": 3
+    },
+    {
+      "pickup": "devnagara new",
+      "drop": "dddd",
+      "pickupDate": "2023-04-04",
+      "pickupTime": "12:20",
+      "deliveryPartnerId": "15",
+      "customerId": 11,
+      "status": "Pending",
+      "number": 7222996021,
+      "id": 4
     }
   ],
   "deliveryPartners": [

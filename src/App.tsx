@@ -5,7 +5,8 @@ import { Login } from "./pages/Login";
 import { DeliveryPartnerDashboard } from "./pages/DeliveryPartnerDashboard";
 import { PrivateRoutes } from "./components/PrivateRoutes";
 import { CustomerSignup } from "./pages/CustomerSignup";
-import { Nav } from "./components/Nav";
+import { DeliveryPartnerSignup } from "./pages/DeliveryPartnerSignup";
+import { PageNotFound } from "./components/PageNotFound";
 
 function App() {
   return (
@@ -19,8 +20,11 @@ function App() {
               element={<DeliveryPartnerDashboard />}
             />
           </Route>
+
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<CustomerSignup />} />
+          <Route path="/signup-partner" element={<DeliveryPartnerSignup />} />
+          <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </Router>
     </>
