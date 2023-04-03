@@ -11,7 +11,6 @@ function App() {
   return (
     <>
       <Router>
-        <Nav />
         <Routes>
           <Route element={<PrivateRoutes />}>
             <Route path="/dashboard" element={<CustomerDashboard />} />

@@ -80,7 +80,9 @@ const CustomerSignup = () => {
       </div>
       <div className="max-w-full grow basis-0 mx-10 px-12">
         <form onSubmit={(e) => submitHandler(signupDetails, e)}>
-          <h2 className="text-3xl font-semibold mb-6">Create your account</h2>
+          <h2 className="text-3xl font-semibold mb-6">
+            Create Your <span className="text-blue-500">Account</span> Today!
+          </h2>
           {signupFields.map((field) => {
             return (
               <div className="flex flex-col">
@@ -103,6 +105,15 @@ const CustomerSignup = () => {
             LESS GO
           </button>
         </form>
+        <h3 className="text-lg font-medium mt-3">
+          Become
+          <button onClick={() => navigate("/signup")}>
+            <span className="text-blue-500 font-medium ml-1">
+              {" "}
+              Delivery Partner ?
+            </span>
+          </button>
+        </h3>
       </div>
     </section>
   );

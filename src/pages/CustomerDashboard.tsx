@@ -3,6 +3,7 @@ import { SendItemModal } from "../components/SendItemModal";
 import { ShippmentCard } from "../components/ShippmentCard";
 import { useUser } from "../contexts/customerContext";
 import axios from "axios";
+import { Nav } from "../components/Nav";
 const CustomerDashboard = () => {
   const [toggleSendItemModal, setToggleSendItemModal] = useState(false);
   const { userData, setUserData } = useUser();
@@ -29,6 +30,7 @@ const CustomerDashboard = () => {
   }, []);
   return (
     <>
+      <Nav />
       <div className="m-10 mx-20 ">
         <div className="flex items-start">
           <section className="w-[60%]">

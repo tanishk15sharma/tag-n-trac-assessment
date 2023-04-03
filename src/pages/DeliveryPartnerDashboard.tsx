@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { SendItemsDetails } from "../components/SendItemModal";
 import { DeliveryPartnerCard } from "../components/DeliveryPartnerCard";
+import { Nav } from "../components/Nav";
 
 const DeliveryPartnerDashboard = () => {
   const [shippmentsAssigned, setShippmentsAssigned] = useState<
@@ -31,6 +32,7 @@ const DeliveryPartnerDashboard = () => {
 
   return (
     <>
+      <Nav />
       <div className="m-10 mx-20 ">
         <div className="flex justify-between my-10">
           <h1 className="text-3xl">Remaining Shippments</h1>

@@ -62,7 +62,9 @@ const Login = () => {
       <div className="max-w-full grow basis-0 mx-10 px-12">
         <form onSubmit={(e) => submitHandler(loginDetails, e)}>
           <h2 className="text-3xl font-semibold mb-10">
-            Sign in to your account
+            <span className="text-blue-500">Sign In </span>
+            To Your Account
+            <span className="text-blue-500">!</span>
           </h2>
           <div className="flex flex-col">
             <label htmlFor="username" className="font-medium">
@@ -95,6 +97,12 @@ const Login = () => {
             LOGIN
           </button>
         </form>
+        <h3 className="text-lg font-medium mt-3">
+          Don’t have an account?
+          <button onClick={() => navigate("/signup")}>
+            <span className="text-blue-500 font-medium ml-1"> Sign up</span>
+          </button>
+        </h3>
       </div>
     </section>
   );
