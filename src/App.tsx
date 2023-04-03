@@ -5,11 +5,13 @@ import { Login } from "./pages/Login";
 import { DeliveryPartnerDashboard } from "./pages/DeliveryPartnerDashboard";
 import { PrivateRoutes } from "./components/PrivateRoutes";
 import { CustomerSignup } from "./pages/CustomerSignup";
+import { Nav } from "./components/Nav";
 
 function App() {
   return (
     <>
       <Router>
+        <Nav />
         <Routes>
           <Route element={<PrivateRoutes />}>
             <Route path="/dashboard" element={<CustomerDashboard />} />
