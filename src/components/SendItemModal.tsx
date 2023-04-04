@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useUser } from "../contexts/customerContext";
+import { displayRazorpay } from "../utilities/handlePayment";
 export interface SendItemsDetails {
   pickup: string;
   drop: string;
@@ -13,6 +14,17 @@ export interface SendItemsDetails {
   id?: number;
 }
 
+interface DeliveryPartnerTypes {
+  name: string;
+  email: string;
+  id: number;
+  profile: string;
+  password: string;
+  role: string;
+  area: string;
+  isAvailable: boolean;
+}
+
 const SendItemModal = ({
   setModal,
   editDetails,
@@ -20,9 +32,10 @@ const SendItemModal = ({
   setModal: () => void;
   editDetails?: SendItemsDetails;
 }) => {
-  const [generatedCaptcha, setGeneratedCaptcha] = useState("");
   const { id, phone } = JSON.parse(localStorage.getItem("userInfo") as string);
-  const [deliveryPartners, setDeliveryPartners] = useState<any>([]);
+  const [deliveryPartners, setDeliveryPartners] = useState<
+    DeliveryPartnerTypes[]
+  >([]);
   const [sendItemDetails, setSendItemDetails] = useState<SendItemsDetails>(
     editDetails
       ? editDetails
@@ -37,23 +50,10 @@ const SendItemModal = ({
           number: phone,
         }
   );
-  const captchaCharacters = "abcd1234";
+
   const { setUserData } = useUser();
 
-  const generateCaptcha = () => {
-    let result = "";
-
-    for (let i = 0; i < 6; i++) {
-      result += captchaCharacters.charAt(
-        Math.floor(Math.random() * captchaCharacters.length)
-      );
-    }
-    setGeneratedCaptcha(result);
-  };
-
   useEffect(() => {
-    generateCaptcha();
-
     (async () => {
       try {
         const { status, data } = await axios.get(
@@ -80,9 +80,8 @@ const SendItemModal = ({
     }));
   };
 
-  const submitHandler = async (e: React.FormEvent<HTMLButtonElement>) => {
+  const submitHandler = async () => {
     try {
-      e.preventDefault();
       const { status, data } = await axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/shippments`,
         sendItemDetails
@@ -226,7 +225,7 @@ const SendItemModal = ({
                     className="p-2 border rounded-md"
                     name="deliveryPartnerId"
                   >
-                    {deliveryPartners?.map((partner: any) => (
+                    {deliveryPartners?.map((partner) => (
                       <option
                         key={partner.id}
                         className={`p-2 m-2 font-medium ${
@@ -258,7 +257,7 @@ const SendItemModal = ({
                 <button
                   type="submit"
                   className="bg-blue-400 py-2 w-[30%] px-3 font-semibold text-white"
-                  onClick={(e) => submitHandler(e)}
+                  onClick={(e) => displayRazorpay(e, submitHandler)}
                 >
                   SUBMIT
                 </button>
