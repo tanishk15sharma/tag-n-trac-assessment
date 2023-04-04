@@ -32,10 +32,10 @@ const DeliveryPartnerCard = ({
   };
 
   const bgColor = () => {
-    if (shippmentDetails.status === "Canceled") return "bg-red-100";
-    if (shippmentDetails.status === "Received") return "bg-blue-100";
-    if (shippmentDetails.status === "Delivered") return "bg-green-100";
-    if (shippmentDetails.status === "Pending") return "bg-yellow-100";
+    if (shippmentDetails.status === "Canceled") return "bg-red-50";
+    if (shippmentDetails.status === "Received") return "bg-blue-50";
+    if (shippmentDetails.status === "Delivered") return "bg-green-50";
+    if (shippmentDetails.status === "Pending") return "bg-yellow-50";
   };
 
   return (
@@ -46,7 +46,7 @@ const DeliveryPartnerCard = ({
     >
       <div>
         <h6 className="text-[10px] font-semibold text-gray-400">PICKUP:</h6>
-        <h5 className="bg-blue-100 text-gray-600 text-sm w-fit px-1 rounded">
+        <h5 className="bg-gray-50 text-gray-600 text-sm w-fit px-1 rounded">
           {shippmentDetails.number}
         </h5>
         <h3>{shippmentDetails.pickup}</h3>
@@ -60,11 +60,14 @@ const DeliveryPartnerCard = ({
         <h3>{shippmentDetails.drop}</h3>
       </div>
       <div className="flex flex-col justify-between">
-        <p>STATUS: {shippmentDetails.status}</p>
+        <p className="text-sm text-gray-700">
+          STATUS:
+          <span className="font-semibold"> {shippmentDetails.status}</span>
+        </p>
         <div className="flex justify-around items-center">
           <button
             title="Receive"
-            className="flex hover:bg-gray-100 rounded-full px-2 py-[6px]"
+            className="flex hover:shadow-xl icon transition-all rounded-full px-2 py-[6px]"
             onClick={() => editHandler("Received")}
           >
             <span className="material-icons-outlined text-blue-500">
@@ -73,7 +76,7 @@ const DeliveryPartnerCard = ({
           </button>
           <button
             title="Deliver"
-            className="flex hover:bg-gray-100 rounded-full px-2 py-[6px]"
+            className="flex hover:shadow-xl icon transition-all rounded-full px-2 py-[6px]"
             onClick={() => editHandler("Delivered")}
           >
             <span className="material-icons-outlined text-green-500">
@@ -82,7 +85,7 @@ const DeliveryPartnerCard = ({
           </button>
           <button
             title="Cancel"
-            className="flex hover:bg-gray-100 rounded-full px-2 py-[6px]"
+            className="flex hover:shadow-xl icon transition-all rounded-full px-2 py-[6px]"
             onClick={() => editHandler("Canceled")}
           >
             <span className="material-icons-outlined text-red-500">block</span>

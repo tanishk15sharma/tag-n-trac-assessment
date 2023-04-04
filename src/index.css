@@ -17,3 +17,6 @@ body {
   border-bottom: 2px solid #6b7280;
   border-style: dashed;
 }
+.icon:hover {
+  transform: translate(0, -2px);
+}

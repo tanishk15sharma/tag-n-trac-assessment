@@ -60,7 +60,6 @@ const SendItemModal = ({
           `${process.env.REACT_APP_BACKEND_URL}/users?role=deliveryPartner`
         );
         if (status === 200) {
-          console.log(data);
           return setDeliveryPartners(data);
         }
       } catch (err) {
